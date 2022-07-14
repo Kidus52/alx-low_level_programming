@@ -1,4 +1,4 @@
-ection .text
+section .text
 
 	global main
 main:
