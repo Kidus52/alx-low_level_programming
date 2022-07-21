@@ -1,4 +1,4 @@
-nclude "main.h"
+#include "main.h"
 
 /**
  * get_bit - function that returns the value
@@ -22,6 +22,3 @@ int get_bit(unsigned long int n, unsigned int index)
 
 	return (bit);
 }
-
-Footer
-
