@@ -1,46 +1,38 @@
 #include "main.h"
 
 /**
- * _len - finds length of the string given
- * @s: string given
- * Return: length of a  string
- */
-int _len(const char *s)
-{
-	int count = 0;
-	int j = 0;
-
-	while (s[j] != '\0')
-	{
-		count++;
-		j++;
-	}
-	return (count);
-}
-
-/**
- * binary_to_uint - changes a binary to  unsigned int
- * @b: the given binary
- * Return: unsigned int for  succes 0 otherwise
+ * binary_to_uint - function that prints all the elements
+ * of a list_t list.
+ * @b : Pointer to a string of 0 and 1 chars
+ * Return: Converted number or 0 if there is one or more
+ * chars in the string b that is not 0 or 1 or b is NULL.
  */
 unsigned int binary_to_uint(const char *b)
 {
-	int len = _len(b) - 1;
-	int i = 0;
-	unsigned int uint = 0;
+	unsigned int k = 1;
+	unsigned int i = 0;
+	unsigned int j = 0;
+	int c;
+	unsigned int len;
 
 	if (b == NULL)
-		return (uint);
+		return (0);
 
-	while (b[i])
+	while (b[j] != '\0')
+		j++;
+
+	len = j;
+
+	for (c = len - 1; c >= 0; c--)
 	{
-		if (b[i] != '1' && b[i] != '0')
+		if (b[c] != '0' && b[c] != '1')
 			return (0);
 
-		if (b[i] == '1')
-			uint += (1 * (1 << len));
-		i++;
-		len--;
+		if (b[c] == '1')
+		{
+			i += k;
+		}
+		k *= 2;
 	}
-	return (uint);
+	return (i);
 }
